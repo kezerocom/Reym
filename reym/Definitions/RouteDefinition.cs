@@ -2,9 +2,12 @@ namespace Reym.Definitions;
 
 public class RouteDefinition
 {
-    public string? Path { get; set; }
-    public DataDefinition? Data { get; set; }
-    public ViewDefinition? Layout { get; set; }
-    public LogicDefinition? Logic { get; set; }
+    public const string RouteTagName = "route";
+    public const string PathAttributeName = "path";
+
+    public string Path { get; set; } = string.Empty;
+    public DataDefinition Data { get; set; } = new();
+    public ViewDefinition View { get; set; } = new();
+    public LogicDefinition Logic { get; set; } = new();
 
 }
