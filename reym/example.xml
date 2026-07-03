@@ -1,0 +1,38 @@
+<route path="/counter">
+
+    <data>
+        <value name="counter" type="number" default="0" />
+    </data>
+
+    <view>
+        <div class="counter-container">
+            <h1>Internal Counter</h1>
+
+            <p class="display">@{counter}</p>
+
+            <div class="actions-layout">
+                <button onClick="@{decrement}">- Decrease</button>
+                <button onClick="@{increment}">+ Increase</button>
+            </div>
+        </div>
+    </view>
+
+    <logic>
+        <action name="increment">
+            counter += 1;
+        </action>
+
+        <action name="decrement">
+            counter -= 1;
+        </action>
+
+        <event on="counter">
+            print(`The counter changed to: ${counter}`);
+        </event>
+
+        <action name="print" parameters="message: string, type: string = 'INFO'">
+            console.log(`[${type}] {message}`);
+        </action>
+    </logic>
+
+</route>
